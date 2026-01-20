@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTNC Model (5K Ultra-Clear)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Serif+SC:wght@400;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-canvas: #ffffff;
+            --ink-black: #000000;
+            --ink-gray: #e5e5e5;
+            --ink-dark-gray: #404040;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f0f0; 
+            color: var(--ink-black);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* The actual exportable canvas container */
+        #export-container {
+            background-color: #ffffff;
+            /* Precise grid pattern */
+            background-image: 
+                linear-gradient(var(--ink-gray) 1px, transparent 1px),
+                linear-gradient(90deg, var(--ink-gray) 1px, transparent 1px);
+            background-size: 40px 40px;
+            max-width: 1000px; 
+            margin: 0 auto;
+            position: relative;
+            /* Ensure crisp text rendering */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .font-serif-sc { font-family: 'Noto Serif SC', serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* Structural Lines */
+        .axis-line {
+            width: 2px;
+            background-color: var(--ink-black);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+
+        /* Art Blocks */
+        .art-block {
+            background: white;
+            border: 2px solid black;
+            position: relative;
+            z-index: 10;
+            box-shadow: 6px 6px 0px black; 
+        }
+        
+        .art-block-inverse {
+            background: black;
+            color: white;
+            border: 2px solid black;
+            position: relative;
+            z-index: 10;
+            box-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+        }
+
+        .art-block-gray {
+            background: #f3f4f6;
+            border: 2px solid black;
+            position: relative;
+            z-index: 10;
+        }
+
+        .txt-label {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Connectors */
+        .arrow-box {
+            background: white;
+            border: 2px solid black;
+            padding: 6px 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            position: relative;
+            z-index: 20; 
+            box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+        }
+
+        /* Vertical Label Utility */
+        .writing-mode-vertical {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            letter-spacing: 0.1em;
+        }
+
+        /* Button Group */
+        .btn-group {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 999;
+        }
+
+        /* Spinner */
+        .spinner {
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top: 2px solid white;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+
+    <!-- Container wrapper to center content -->
+    <div class="w-full min-h-screen py-10 bg-gray-100 flex justify-center">
+        
+        <!-- THE EXPORT TARGET -->
+        <!-- Increased padding for better framing in exported image -->
+        <div id="export-container" class="w-full flex flex-col items-center py-24 px-8 md:px-20 shadow-2xl">
+            
+            <!-- HEADER -->
+            <header class="w-full mb-24 relative z-10 text-left border-b-4 border-black pb-8">
+                <div class="flex justify-between items-end mb-4">
+                    <div class="font-mono text-sm font-bold bg-black text-white px-3 py-1">BTNC Model</div>
+                    <div class="font-mono text-sm text-black font-bold">2026 · Leilei</div>
+                </div>
+                
+                <h1 class="text-5xl md:text-6xl font-serif-sc leading-tight mb-4 font-black">
+                    从生物张力到<br>叙事文明的生成路径
+                </h1>
+                <h2 class="text-lg md:text-xl font-bold tracking-tight text-gray-500 font-sans uppercase">
+                    The Generation Path from Biological Tension to Narrative Civilization
+                </h2>
+            </header>
+
+            <div class="relative w-full flex flex-col items-center">
+                
+                <!-- CENTRAL AXIS (The Spine) -->
+                <div class="axis-line h-full" style="top:-40px; bottom:0;"></div>
+
+                <!-- LAYER MARKER 01 -->
+                <div class="absolute -left-16 top-0 z-30">
+                    <span class="bg-black text-white font-mono text-xs px-2 py-3 writing-mode-vertical font-bold shadow-[4px_4px_0px_#ccc]">LAYER 01</span>
+                </div>
+
+                <!-- 1. PHYSICAL / BIOLOGICAL WORLD -->
+                <div class="art-block w-full max-w-3xl p-10 mb-6 text-left">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-end border-b-2 border-black pb-4 mb-6">
+                        <div>
+                            <div class="txt-label text-xs text-gray-500 mb-1">Base Layer</div>
+                            <div class="text-2xl font-bold">PHYSICAL / BIOLOGICAL WORLD</div>
+                        </div>
+                        <div class="text-xl font-serif-sc font-bold mt-2 md:mt-0">物理 / 生物 / 社会结构世界</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 font-mono text-sm">
+                        <div>
+                            <p class="font-bold mb-2">Objective differences exist</p>
+                            <p class="text-gray-600 text-base">外在差异客观存在</p>
+                            <p class="text-xs text-gray-400 mt-2">(Environment / Body / Structure)</p>
+                        </div>
+                        <div class="flex items-center justify-start md:justify-end">
+                            <div class="bg-gray-50 p-3 border border-black">
+                                <span class="font-bold">→ Not yet a “problem”</span><br>
+                                <span class="text-gray-600">→ 尚未构成“问题”</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Signal Connector -->
+                <div class="arrow-box my-8">
+                    Hormonal / Neural Signals (激素/神经信号) ▼
+                </div>
+
+                <!-- SYSTEM STATE CHANGE -->
+                <div class="art-block-gray w-full max-w-xl p-6 text-center mb-10">
+                    <h3 class="text-lg font-bold">SYSTEM STATE CHANGE</h3>
+                    <h3 class="font-serif-sc font-bold mb-2 text-xl">系统状态改变</h3>
+                    <p class="font-mono text-xs text-gray-600">Physiological / neural state deviation (生理/神经层状态变化)</p>
+                </div>
+
+                <!-- LAYER MARKER 02 -->
+                <div class="absolute -left-16 top-[500px] z-30">
+                    <span class="bg-black text-white font-mono text-xs px-2 py-3 writing-mode-vertical font-bold shadow-[4px_4px_0px_#ccc]">LAYER 02</span>
+                </div>
+
+                <!-- 2. TENSION GRADIENT (INVERSE EMPHASIS) -->
+                <div class="art-block-inverse w-full max-w-2xl p-12 text-center mb-16">
+                    <div class="border-2 border-white inline-block px-4 py-1 mb-6 rounded-full font-mono text-xs font-bold">CRITICAL INPUT</div>
+                    <h2 class="text-5xl font-black mb-4 tracking-tighter">TENSION GRADIENT</h2>
+                    <h2 class="text-3xl font-serif-sc font-bold mb-10">张力差 / 稳态偏离</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-black text-xs font-mono text-left">
+                        <div class="bg-white p-4 border border-white">
+                            <span class="block font-bold mb-1 text-base">Purely</span>
+                            <span>纯生理</span>
+                        </div>
+                        <div class="bg-white p-4 border border-white">
+                            <span class="block font-bold mb-1 text-base">Unconscious</span>
+                            <span>非意识</span>
+                        </div>
+                        <div class="bg-white p-4 border border-white">
+                            <span class="block font-bold mb-1 text-base">Non-narrative</span>
+                            <span>非叙事</span>
+                        </div>
+                    </div>
+                    <div class="mt-8 font-mono text-sm border-t border-gray-700 pt-6 text-gray-400">
+                        Hunger / Pain / Fatigue / Threat (饥饿 / 疼痛 / 疲劳 / 威胁)
+                    </div>
+                </div>
+
+                <!-- BIFURCATION GRAPHIC -->
+                <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-16 relative mb-16">
+                    <!-- SVG Lines -->
+                    <svg class="absolute -top-16 left-0 w-full h-20 pointer-events-none hidden md:block z-0">
+                        <path d="M 448 0 V 20 H 224 V 80" fill="none" stroke="black" stroke-width="2" />
+                        <path d="M 448 0 V 20 H 672 V 80" fill="none" stroke="black" stroke-width="2" />
+                    </svg>
+
+                    <!-- PATH A -->
+                    <div class="flex flex-col gap-4 pt-4">
+                        <div class="font-mono text-xs font-bold text-gray-400 text-center border-b border-gray-300 pb-2 mb-2">[A] NOT PERCEIVED / 未被感知</div>
+                        <div class="art-block-gray p-8 h-full opacity-60">
+                            <ul class="space-y-6 font-mono text-sm">
+                                <li class="flex justify-between border-b border-gray-300 pb-2">
+                                    <span class="font-bold">Automatic regulation</span>
+                                    <span class="text-gray-500">自动调节</span>
+                                </li>
+                                <li class="flex justify-between border-b border-gray-300 pb-2">
+                                    <span class="font-bold">Direct action</span>
+                                    <span class="text-gray-500">直接行动</span>
+                                </li>
+                                <li class="text-xs text-gray-500 mt-6 text-center italic">
+                                    (Pure system correction / 纯系统修正)
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- PATH B -->
+                    <div class="flex flex-col gap-4 pt-4">
+                        <div class="font-mono text-xs font-bold text-black text-center border-b-2 border-black pb-2 mb-2 bg-white relative z-20">[B] PERCEIVED / 被感知</div>
+                        <div class="art-block p-8 border-b-8 border-b-black">
+                            <div class="font-bold text-lg mb-1">PRE-NARRATIVE AFFECT</div>
+                            <div class="font-serif-sc font-bold text-2xl mb-6">原始情绪</div>
+                            
+                            <div class="space-y-3 font-mono text-sm text-gray-800">
+                                <p class="flex items-center gap-2"><span class="w-2 h-2 bg-black rounded-full"></span> Felt tension / 被感知的张力</p>
+                                <p class="flex items-center gap-2"><span class="w-2 h-2 bg-black rounded-full"></span> Tight/Loose/Pressure / 紧/松/压</p>
+                                <div class="bg-black text-white p-3 mt-6 text-xs leading-relaxed">
+                                    No object / No meaning / No self<br>
+                                    无对象 / 无意义 / 无“我”
+                                </div>
+                            </div>
+                            <div class="mt-6 text-center text-xs font-bold border-t-2 border-black pt-3">
+                                (Raw felt state / 体验本身)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- REGULATION CHECK -->
+                <div class="w-full max-w-xl mx-auto relative mb-16 z-20">
+                     <div class="arrow-box mx-auto w-max mb-6">REGULATION CHECK (调节判断) ▼</div>
+                     
+                     <div class="flex gap-6 relative z-20">
+                         <!-- Success -->
+                         <div class="flex-1 bg-gray-50 p-6 border border-gray-200 text-xs text-gray-400 z-20 shadow-inner">
+                             <div class="font-bold mb-2 text-gray-600">[B1] SUCCEEDS</div>
+                             <div>Rest / Resolved</div>
+                             <div>(End of loop)</div>
+                         </div>
+                         <!-- Fail -->
+                         <div class="flex-1 art-block-inverse p-6 text-xs z-20">
+                             <div class="font-bold mb-3 text-white border-b border-white pb-2 text-sm">[B2] FAILS (失败)</div>
+                             <div class="mb-2 font-bold">Persistent imbalance</div>
+                             <div class="font-mono text-yellow-400">→ COGNITIVE SURPLUS</div>
+                         </div>
+                     </div>
+
+                     <!-- Connector lines -->
+                     <div class="absolute right-[25%] -bottom-10 w-[2px] h-10 bg-black z-0"></div>
+                     <div class="absolute right-[25%] -bottom-10 w-[25%] h-[2px] bg-black z-0"></div>
+                </div>
+
+                <!-- LAYER MARKER 03 -->
+                <div class="absolute -left-16 top-[1500px] z-30">
+                    <span class="bg-black text-white font-mono text-xs px-2 py-3 writing-mode-vertical font-bold shadow-[4px_4px_0px_#ccc]">LAYER 03</span>
+                </div>
+
+                <!-- 3. COGNITIVE SURPLUS & REFLEXIVITY -->
+                <div class="art-block w-full max-w-2xl p-10 mb-8 text-center">
+                    <div class="inline-block border-2 border-black px-4 py-1 font-mono text-xs font-bold mb-6">COGNITIVE SURPLUS (认知冗余)</div>
+                    <h3 class="text-4xl font-black mb-2">REFLEXIVITY</h3>
+                    <h3 class="text-3xl font-serif-sc font-bold mb-8">自反性</h3>
+                    
+                    <div class="bg-gray-100 border-l-8 border-black p-6 text-left font-serif-sc text-xl italic shadow-sm">
+                        “Now” ≠ “Could / Should”<br>
+                        <span class="text-lg not-italic font-bold mt-2 block">“现在” ≠ “可以 / 应当”</span>
+                    </div>
+                    <p class="font-mono text-xs mt-6 text-gray-500 font-bold uppercase tracking-widest">System can represent itself</p>
+                </div>
+
+                <div class="arrow-box mb-8">▼</div>
+
+                <!-- POTENTIAL GRADIENT -->
+                <div class="art-block w-full max-w-4xl p-10 mb-8">
+                    <div class="flex flex-col md:flex-row gap-10">
+                        <div class="flex-1 text-right border-r-4 border-black pr-10 flex flex-col justify-center">
+                             <h2 class="text-6xl font-black leading-none">PG</h2>
+                             <div class="text-sm font-bold mt-2 tracking-widest">POTENTIAL GRADIENT</div>
+                             <div class="font-serif-sc font-bold text-xl mt-1">位势差</div>
+                        </div>
+                        <div class="flex-[2] flex flex-col justify-center">
+                            <p class="font-bold text-xl leading-tight mb-3">Structural asymmetry between current and evaluated states</p>
+                            <p class="font-serif-sc text-gray-600 text-lg">当前状态 vs 被评估状态的结构差</p>
+                            <div class="flex gap-3 mt-6 text-xs font-mono font-bold">
+                                <span class="bg-black text-white px-3 py-1">Not Emotion</span>
+                                <span class="bg-black text-white px-3 py-1">Not Narrative</span>
+                                <span class="bg-black text-white px-3 py-1">Pre-linguistic</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AXIS SPACE (Fixed Z-Index) -->
+                <div class="w-full max-w-4xl grid grid-cols-3 gap-0 mb-8 border-2 border-black relative z-10 bg-white shadow-[4px_4px_0px_#ccc]">
+                    <div class="p-6 text-center border-r-2 border-black bg-white relative z-10">
+                        <div class="font-black text-3xl mb-2">EPG</div>
+                        <div class="text-xs font-mono font-bold">Evaluative</div>
+                        <div class="text-xs text-gray-500 mt-1">Better Self</div>
+                    </div>
+                    <!-- Center column covers axis line -->
+                    <div class="p-6 text-center border-r-2 border-black bg-white relative z-10">
+                        <div class="font-black text-3xl mb-2">SPG</div>
+                        <div class="text-xs font-mono font-bold">Social</div>
+                        <div class="text-xs text-gray-500 mt-1">Position</div>
+                    </div>
+                    <div class="p-6 text-center bg-white relative z-10">
+                        <div class="font-black text-3xl mb-2">TPG</div>
+                        <div class="text-xs font-mono font-bold">Temporal</div>
+                        <div class="text-xs text-gray-500 mt-1">Future</div>
+                    </div>
+                </div>
+
+                <div class="arrow-box mb-8">▼</div>
+
+                <!-- BOTTLENECK -->
+                <div class="w-full max-w-xl bg-black text-white p-8 text-center border-2 border-black mb-16 shadow-[10px_10px_0px_#aaa] relative z-10">
+                    <div class="font-mono text-xs text-gray-400 mb-2 tracking-[0.3em]">/// BOTTLENECK ///</div>
+                    <div class="font-bold text-xl mb-1">STRUCTURAL PROCESSING BOTTLENECK</div>
+                    <div class="font-serif-sc font-bold text-2xl">结构性处理瓶颈</div>
+                    <p class="text-sm text-gray-300 mt-4 font-mono leading-relaxed px-8 border-t border-gray-700 pt-4">
+                        Human cognition cannot resolve multi-dimensional gradients in parallel<br>
+                        (人脑无法并行消解多维位势差)
+                    </p>
+                </div>
+
+                <!-- LAYER MARKER 04 -->
+                <div class="absolute -left-16 top-[2500px] z-30">
+                    <span class="bg-black text-white font-mono text-xs px-2 py-3 writing-mode-vertical font-bold shadow-[4px_4px_0px_#ccc]">LAYER 04</span>
+                </div>
+
+                <!-- 4. NARRATIVITY INTERFACE -->
+                <div class="art-block w-full max-w-3xl p-0 mb-6 overflow-hidden relative z-10">
+                    <div class="bg-gray-100 p-6 border-b-2 border-black text-center">
+                        <h3 class="font-black text-2xl">NARRATIVITY INTERFACE</h3>
+                        <h3 class="font-serif-sc font-bold text-xl">叙事性接口（压缩开始）</h3>
+                    </div>
+                    <div class="p-10 bg-white">
+                        <ul class="space-y-6 font-mono text-sm md:text-base">
+                            <li class="flex items-center">
+                                <span class="bg-black text-white w-8 h-8 flex items-center justify-center mr-6 text-sm font-bold flex-shrink-0">1</span>
+                                <div>
+                                    <span class="font-bold text-lg">Perspective Binding</span>
+                                    <span class="text-gray-500 ml-3 font-serif-sc">视角绑定</span>
+                                </div>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="bg-black text-white w-8 h-8 flex items-center justify-center mr-6 text-sm font-bold flex-shrink-0">2</span>
+                                <div>
+                                    <span class="font-bold text-lg">Axis Selection</span>
+                                    <span class="text-gray-500 ml-3 font-serif-sc">主轴选择</span>
+                                </div>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="bg-black text-white w-8 h-8 flex items-center justify-center mr-6 text-sm font-bold flex-shrink-0">3</span>
+                                <div>
+                                    <span class="font-bold text-lg">Causal Simplification</span>
+                                    <span class="text-gray-500 ml-3 font-serif-sc">因果简化</span>
+                                </div>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="bg-black text-white w-8 h-8 flex items-center justify-center mr-6 text-sm font-bold flex-shrink-0">4</span>
+                                <div>
+                                    <span class="font-bold text-lg">Temporal Linearization</span>
+                                    <span class="text-gray-500 ml-3 font-serif-sc">时间线性化</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- EMERGENCE POINT -->
+                    <div class="bg-black text-white p-10 text-center border-t-4 border-black relative overflow-hidden">
+                        <!-- Diagonal stripes decoration -->
+                        <div class="absolute top-0 left-0 w-full h-full opacity-10" style="background: repeating-linear-gradient(45deg, #fff, #fff 1px, transparent 1px, transparent 10px);"></div>
+                        
+                        <div class="relative z-10">
+                            <div class="text-xs font-mono mb-4 tracking-[0.2em] text-yellow-400">▶ EMERGENCE POINT</div>
+                            <h2 class="text-6xl font-black tracking-tighter mb-2">EMOTION</h2>
+                            <h2 class="text-3xl font-serif-sc font-bold mb-6">情绪在此生成</h2>
+                            <div class="inline-block border border-white px-6 py-3 text-base font-serif-sc italic">
+                                "Affect becomes owned, named, and reasoned"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Re-establish Axis Line -->
+                <div class="axis-line h-20 relative bg-black z-0"></div>
+
+                <!-- 5. OUTPUT -->
+                <div class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-10 mb-20 relative z-10">
+                    <!-- Intent & Language -->
+                    <div class="art-block p-8">
+                        <div class="border-b-4 border-black pb-3 mb-6 font-bold text-xl">OUTPUT GENERATION</div>
+                        
+                        <div class="mb-8">
+                            <div class="font-black text-lg">INTENT FORMATION</div>
+                            <div class="font-serif-sc text-gray-600 mb-2">意图生成</div>
+                            <div class="mt-2 font-mono text-sm bg-gray-100 p-3 border border-gray-300">
+                                “I want / I should / I must”
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="font-black text-lg">SYMBOLIC EXTERNALIZATION</div>
+                            <div class="font-serif-sc text-gray-600 mb-1">符号外显</div>
+                            <div class="text-sm text-gray-500 font-mono">Replicable narrative compression</div>
+                        </div>
+                    </div>
+
+                    <!-- Alignment Test -->
+                    <div class="art-block p-8 bg-gray-50">
+                        <div class="border-b-4 border-black pb-3 mb-6 font-bold text-xl">ALIGNMENT TEST</div>
+                        
+                        <div class="space-y-6">
+                            <div class="flex justify-between items-center bg-white p-4 border-2 border-black shadow-[4px_4px_0px_#eee]">
+                                <span class="font-mono text-sm font-bold">MATCH</span>
+                                <div class="text-right">
+                                    <div class="font-black text-xl">CIVILIZATION</div>
+                                    <div class="text-sm font-serif-sc font-bold">文明</div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center bg-black text-white p-4 border-2 border-black shadow-[4px_4px_0px_#999]">
+                                <span class="font-mono text-sm font-bold">MISMATCH</span>
+                                <div class="text-right">
+                                    <div class="font-black text-xl">ANXIETY</div>
+                                    <div class="text-sm font-serif-sc font-bold">焦虑 (PG Exposed)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- FOOTER / AXIOMS -->
+            <footer class="w-full border-t-4 border-black pt-16 mt-16 relative z-10">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
+                    <div class="p-6 border-l-4 border-black bg-gray-50">
+                        <h5 class="font-mono text-xs font-bold mb-3 text-gray-500">AXIOM I</h5>
+                        <p class="font-serif-sc font-black text-2xl mb-2">情绪是计算结果</p>
+                        <p class="text-sm text-gray-600 font-serif italic leading-relaxed">Emotion is not raw input, but a computed output.</p>
+                    </div>
+                    <div class="p-6 border-l-4 border-black bg-gray-50">
+                        <h5 class="font-mono text-xs font-bold mb-3 text-gray-500">AXIOM II</h5>
+                        <p class="font-serif-sc font-black text-2xl mb-2">焦虑即裸露</p>
+                        <p class="text-sm text-gray-600 font-serif italic leading-relaxed">Anxiety is the exposure of raw structural contradictions.</p>
+                    </div>
+                    <div class="p-6 border-l-4 border-black bg-gray-50">
+                        <h5 class="font-mono text-xs font-bold mb-3 text-gray-500">AXIOM III</h5>
+                        <p class="font-serif-sc font-black text-2xl mb-2">沟通即对齐</p>
+                        <p class="text-sm text-gray-600 font-serif italic leading-relaxed">Communication aligns compression algorithms.</p>
+                    </div>
+                </div>
+                
+                <div class="w-full text-center mt-32 mb-10">
+                    <div class="inline-block bg-black text-white px-6 py-3 font-mono text-sm font-bold tracking-[0.3em] uppercase">
+                        2026 · Leilei
+                    </div>
+                </div>
+                
+                <div class="w-full text-center text-gray-400 text-xs font-mono mt-4">
+                    NOTE: To preserve this layout in Notion/Obsidian, please use the Image file. Code blocks cannot render this visual design.
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- Fixed Action Buttons -->
+    <div class="btn-group">
+        
+        <button id="copyBtn" class="bg-blue-600 hover:bg-blue-700 text-white p-4 shadow-[4px_4px_0px_rgba(0,0,0,0.5)] flex items-center justify-center gap-3 transition-all duration-200 border-2 border-white group w-14 hover:w-48 overflow-hidden whitespace-nowrap rounded-lg">
+            <span class="text-xl">📋</span>
+            <span class="text-xs font-mono font-bold opacity-0 group-hover:opacity-100 transition-opacity">COPY 5K (Notion)</span>
+            <div id="loadingSpinnerCopy" class="spinner hidden"></div>
+        </button>
+
+        <button id="downloadPdfBtn" class="bg-gray-800 hover:bg-gray-900 text-white p-4 shadow-[4px_4px_0px_rgba(0,0,0,0.5)] flex items-center justify-center gap-3 transition-all duration-200 border-2 border-white group w-14 hover:w-40 overflow-hidden whitespace-nowrap rounded-lg">
+            <span class="text-xl">📄</span>
+            <span class="text-xs font-mono font-bold opacity-0 group-hover:opacity-100 transition-opacity">SAVE PDF</span>
+            <div id="loadingSpinnerPdf" class="spinner hidden"></div>
+        </button>
+
+        <button id="downloadPngBtn" class="bg-black hover:bg-gray-900 text-white p-4 shadow-[4px_4px_0px_rgba(0,0,0,0.5)] flex items-center justify-center gap-3 transition-all duration-200 border-2 border-white group w-14 hover:w-40 overflow-hidden whitespace-nowrap rounded-lg">
+            <span class="text-xl">💾</span>
+            <span class="text-xs font-mono font-bold opacity-0 group-hover:opacity-100 transition-opacity">SAVE 5K PNG</span>
+            <div id="loadingSpinnerPng" class="spinner hidden"></div>
+        </button>
+
+        <button id="downloadHtmlBtn" class="bg-gray-700 hover:bg-gray-800 text-white p-4 shadow-[4px_4px_0px_rgba(0,0,0,0.5)] flex items-center justify-center gap-3 transition-all duration-200 border-2 border-white group w-14 hover:w-40 overflow-hidden whitespace-nowrap rounded-lg">
+            <span class="text-xl">💻</span>
+            <span class="text-xs font-mono font-bold opacity-0 group-hover:opacity-100 transition-opacity">SOURCE</span>
+            <div id="loadingSpinnerHtml" class="spinner hidden"></div>
+        </button>
+    </div>
+
+    <script>
+        const { jsPDF } = window.jspdf;
+
+        // Configuration for 5K Export
+        const captureConfig = {
+            backgroundColor: '#ffffff',
+            scale: 6, // 6K Resolution for absolute clarity
+            useCORS: true,
+            logging: false,
+            width: 1000, // Force desktop width
+            windowWidth: 1000,
+            onclone: (document) => {
+                // Ensure text rendering is optimized in clone
+                const style = document.createElement('style');
+                style.innerHTML = `
+                    * { 
+                        text-rendering: geometricPrecision !important; 
+                        -webkit-font-smoothing: antialiased !important;
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        };
+
+        // DOWNLOAD HTML SOURCE
+        document.getElementById('downloadHtmlBtn').addEventListener('click', () => {
+            const htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], {type: 'text/html'});
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'BTNC_Model_Viz.html';
+            link.click();
+        });
+
+        // COPY TO CLIPBOARD
+        document.getElementById('copyBtn').addEventListener('click', function() {
+            const btn = this;
+            const spinner = document.getElementById('loadingSpinnerCopy');
+            const icon = btn.querySelector('span:first-child');
+            const text = btn.querySelector('span:nth-child(2)');
+            
+            triggerLoading(btn, icon, text, spinner, true);
+
+            const elementToCapture = document.getElementById("export-container");
+
+            setTimeout(() => {
+                html2canvas(elementToCapture, captureConfig).then(canvas => {
+                    canvas.toBlob(blob => {
+                        if (navigator.clipboard && navigator.clipboard.write) {
+                            const item = new ClipboardItem({ 'image/png': blob });
+                            navigator.clipboard.write([item]).then(() => {
+                                alert('5K Image copied! Paste it directly into Notion (Ctrl+V).');
+                                resetBtn(btn, icon, text, spinner);
+                            }).catch(err => {
+                                console.error(err);
+                                alert('Clipboard write failed. Try saving as PNG instead.');
+                                resetBtn(btn, icon, text, spinner);
+                            });
+                        } else {
+                            alert('Clipboard API not supported. Please use Save PNG.');
+                            resetBtn(btn, icon, text, spinner);
+                        }
+                    });
+                }).catch(err => {
+                    console.error(err);
+                    resetBtn(btn, icon, text, spinner);
+                });
+            }, 100);
+        });
+
+        // PNG Download
+        document.getElementById('downloadPngBtn').addEventListener('click', function() {
+            const btn = this;
+            const spinner = document.getElementById('loadingSpinnerPng');
+            const icon = btn.querySelector('span:first-child');
+            const text = btn.querySelector('span:nth-child(2)');
+            
+            triggerLoading(btn, icon, text, spinner);
+
+            const elementToCapture = document.getElementById("export-container");
+
+            setTimeout(() => {
+                html2canvas(elementToCapture, captureConfig).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = 'BTNC_Model_5K_Art.png';
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                    resetBtn(btn, icon, text, spinner);
+                }).catch(err => {
+                    console.error(err);
+                    resetBtn(btn, icon, text, spinner);
+                });
+            }, 100);
+        });
+
+        // PDF Download
+        document.getElementById('downloadPdfBtn').addEventListener('click', function() {
+            const btn = this;
+            const spinner = document.getElementById('loadingSpinnerPdf');
+            const icon = btn.querySelector('span:first-child');
+            const text = btn.querySelector('span:nth-child(2)');
+            
+            triggerLoading(btn, icon, text, spinner);
+
+            const elementToCapture = document.getElementById("export-container");
+
+            setTimeout(() => {
+                // PDF doesn't need 6x scale, 3x is sufficient and avoids crashes
+                html2canvas(elementToCapture, { ...captureConfig, scale: 3 }).then(canvas => {
+                    const imgData = canvas.toDataURL('image/png');
+                    const imgWidth = canvas.width;
+                    const imgHeight = canvas.height;
+                    
+                    const pdf = new jsPDF({
+                        orientation: imgWidth > imgHeight ? 'l' : 'p',
+                        unit: 'px',
+                        format: [imgWidth, imgHeight]
+                    });
+
+                    pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+                    pdf.save('BTNC_Model_Full.pdf');
+                    
+                    resetBtn(btn, icon, text, spinner);
+                }).catch(err => {
+                    console.error(err);
+                    resetBtn(btn, icon, text, spinner);
+                });
+            }, 100);
+        });
+
+        function triggerLoading(btn, icon, text, spinner, keepExpanded = false) {
+            if(keepExpanded) btn.classList.add('w-48');
+            else btn.classList.add('w-40');
+            
+            btn.classList.add('pointer-events-none');
+            text.style.opacity = '1';
+            icon.style.display = 'none';
+            spinner.style.display = 'block';
+        }
+
+        function resetBtn(btn, icon, text, spinner) {
+            btn.classList.remove('w-40', 'w-48', 'pointer-events-none');
+            text.style.opacity = ''; 
+            icon.style.display = 'inline';
+            spinner.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
