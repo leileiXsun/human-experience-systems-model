@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BTNC Model (Monochrome Art Style)</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Serif+SC:wght@400;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+
+--bg-canvas: #ffffff;
+
+--ink-black: #000000;
+
+--ink-gray: #e5e5e5;
+
+--ink-dark-gray: #404040;
+
+}
+
+  
+
+body {
+
+font-family: 'Inter', sans-serif;
+
+background-color: var(--bg-canvas);
+
+color: var(--ink-black);
+
+margin: 0;
+
+padding: 0;
+
+/* Grid Pattern background */
+
+background-image:
+
+linear-gradient(var(--ink-gray) 1px, transparent 1px),
+
+linear-gradient(90deg, var(--ink-gray) 1px, transparent 1px);
+
+background-size: 40px 40px;
+
+overflow-x: hidden;
+
+}
+
+  
+
+.font-serif-sc { font-family: 'Noto Serif SC', serif; }
+
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+
+  
+
+/* Structural Lines */
+
+.axis-line {
+
+width: 2px;
+
+background-color: var(--ink-black);
+
+position: absolute;
+
+left: 50%;
+
+transform: translateX(-50%);
+
+z-index: 0; /* Behind everything */
+
+}
+
+  
+
+/* Art Blocks - Ensure they cover lines */
+
+.art-block {
+
+background: white;
+
+border: 2px solid black;
+
+position: relative;
+
+z-index: 10; /* Sit on top of axis line */
+
+transition: transform 0.2s ease;
+
+box-shadow: 4px 4px 0px black; /* Hard shadow */
+
+}
+
+.art-block-inverse {
+
+background: black;
+
+color: white;
+
+border: 2px solid black;
+
+position: relative;
+
+z-index: 10;
+
+box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
+
+}
+
+  
+
+.art-block-gray {
+
+background: #f3f4f6;
+
+border: 2px solid black;
+
+position: relative;
+
+z-index: 10;
+
+}
+
+  
+
+/* Typography Utilities */
+
+.txt-label {
+
+font-family: 'Inter', sans-serif;
+
+font-weight: 800;
+
+text-transform: uppercase;
+
+letter-spacing: 0.05em;
+
+}
+
+/* Connectors */
+
+.arrow-box {
+
+background: white;
+
+border: 2px solid black;
+
+padding: 4px 8px;
+
+font-family: 'JetBrains Mono', monospace;
+
+font-size: 12px;
+
+position: relative;
+
+z-index: 20; /* Highest priority */
+
+}
+
+  
+
+/* Spinner */
+
+.spinner {
+
+border: 2px solid rgba(255,255,255,0.3);
+
+border-top: 2px solid white;
+
+border-radius: 50%;
+
+width: 16px;
+
+height: 16px;
+
+animation: spin 1s linear infinite;
+
+}
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+</style>
+
+</head>
+
+<body>
+
+  
+
+<div id="export-container" class="w-full flex flex-col items-center min-h-screen py-20 px-4 md:px-8">
+
+<!-- HEADER: Typographic Poster Style -->
+
+<header class="w-full max-w-5xl mb-24 relative z-10 text-left border-b-4 border-black pb-8">
+
+<div class="flex justify-between items-end mb-4">
+
+<div class="font-mono text-xs font-bold bg-black text-white px-2 py-1">BTNC Model</div>
+
+<div class="font-mono text-xs text-black font-bold">2026 · Leilei</div>
+
+</div>
+
+<h1 class="text-4xl md:text-6xl font-serif-sc leading-tight mb-2">
+
+从生物张力到<br>叙事文明的生成路径
+
+</h1>
+
+<h2 class="text-xl md:text-2xl font-bold tracking-tight text-gray-600 font-sans uppercase">
+
+The Generation Path from Biological Tension to Narrative Civilization
+
+</h2>
+
+</header>
+
+  
+
+<div class="relative w-full max-w-5xl flex flex-col items-center">
+
+<!-- CENTRAL AXIS (The Spine) -->
+
+<div class="axis-line h-full" style="top:-40px; bottom:0;"></div>
+
+  
+
+<!-- LAYER MARKER 01 -->
+
+<div class="absolute left-0 top-0 hidden md:block z-0">
+
+<span class="bg-black text-white font-mono text-xs px-2 py-1">LAYER 01 : PHYSICAL</span>
+
+</div>
+
+  
+
+<!-- 1. PHYSICAL / BIOLOGICAL WORLD -->
+
+<div class="art-block w-full max-w-3xl p-8 mb-4 text-left">
+
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end border-b-2 border-black pb-4 mb-4">
+
+<div>
+
+<div class="txt-label text-sm text-gray-500 mb-1">Base Layer</div>
+
+<div class="text-2xl font-bold">PHYSICAL / BIOLOGICAL WORLD</div>
+
+</div>
+
+<div class="text-xl font-serif-sc font-bold mt-2 md:mt-0">物理 / 生物 / 社会结构世界</div>
+
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 font-mono text-sm">
+
+<div>
+
+<p class="font-bold mb-1">Objective differences exist</p>
+
+<p class="text-gray-600">外在差异客观存在</p>
+
+<p class="text-xs text-gray-400 mt-2">(Environment / Body / Structure)</p>
+
+</div>
+
+<div class="flex items-center justify-start md:justify-end">
+
+<div class="bg-gray-100 p-2 border border-black">
+
+<span class="font-bold">→ Not yet a “problem”</span><br>
+
+<span class="text-gray-600">→ 尚未构成“问题”</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+  
+
+<!-- Signal Connector -->
+
+<div class="arrow-box my-6">
+
+Hormonal / Neural Signals (激素/神经信号) ▼
+
+</div>
+
+  
+
+<!-- SYSTEM STATE CHANGE -->
+
+<div class="art-block-gray w-full max-w-xl p-6 text-center mb-8">
+
+<h3 class="text-lg font-bold">SYSTEM STATE CHANGE</h3>
+
+<h3 class="font-serif-sc font-bold mb-2">系统状态改变</h3>
+
+<p class="font-mono text-xs text-gray-600">Physiological / neural state deviation (生理/神经层状态变化)</p>
+
+</div>
+
+  
+
+<!-- LAYER MARKER 02 -->
+
+<div class="absolute left-0 top-[400px] hidden md:block z-0">
+
+<span class="bg-black text-white font-mono text-xs px-2 py-1">LAYER 02 : TENSION</span>
+
+</div>
+
+  
+
+<!-- 2. TENSION GRADIENT (INVERSE EMPHASIS) -->
+
+<div class="art-block-inverse w-full max-w-2xl p-10 text-center mb-12 transform hover:scale-[1.01] transition-transform">
+
+<div class="border-2 border-white inline-block px-4 py-1 mb-4 rounded-full font-mono text-xs">CRITICAL INPUT</div>
+
+<h2 class="text-4xl md:text-5xl font-black mb-2 tracking-tighter">TENSION GRADIENT</h2>
+
+<h2 class="text-2xl md:text-3xl font-serif-sc font-bold mb-8">张力差 / 稳态偏离</h2>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-black text-xs font-mono text-left">
+
+<div class="bg-white p-3">
+
+<span class="block font-bold mb-1">Purely physiological</span>
+
+<span>纯生理</span>
+
+</div>
+
+<div class="bg-white p-3">
+
+<span class="block font-bold mb-1">Non-conscious</span>
+
+<span>非意识</span>
+
+</div>
+
+<div class="bg-white p-3">
+
+<span class="block font-bold mb-1">Non-narrative</span>
+
+<span>非叙事</span>
+
+</div>
+
+</div>
+
+<div class="mt-6 font-mono text-sm border-t border-gray-700 pt-4 text-gray-400">
+
+Hunger / Pain / Fatigue / Threat (饥饿 / 疼痛 / 疲劳 / 威胁)
+
+</div>
+
+</div>
+
+  
+
+<!-- BIFURCATION GRAPHIC -->
+
+<div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-12 relative mb-12">
+
+<!-- SVG Lines -->
+
+<svg class="absolute -top-12 left-0 w-full h-16 pointer-events-none hidden md:block z-0">
+
+<path d="M 448 0 V 20 H 224 V 60" fill="none" stroke="black" stroke-width="2" />
+
+<path d="M 448 0 V 20 H 672 V 60" fill="none" stroke="black" stroke-width="2" />
+
+</svg>
+
+  
+
+<!-- PATH A -->
+
+<div class="flex flex-col gap-4 pt-4">
+
+<div class="font-mono text-xs font-bold text-gray-400 text-center">[A] NOT PERCEIVED / 未被感知</div>
+
+<div class="art-block-gray p-6 h-full opacity-60 hover:opacity-100 transition-opacity">
+
+<ul class="space-y-4 font-mono text-sm">
+
+<li class="flex justify-between border-b border-gray-300 pb-1">
+
+<span>Automatic regulation</span>
+
+<span class="text-gray-500">自动调节</span>
+
+</li>
+
+<li class="flex justify-between border-b border-gray-300 pb-1">
+
+<span>Direct action</span>
+
+<span class="text-gray-500">直接行动</span>
+
+</li>
+
+<li class="text-xs text-gray-500 mt-4 text-center">
+
+(Pure system correction / 纯系统修正)
+
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+  
+
+<!-- PATH B -->
+
+<div class="flex flex-col gap-4 pt-4">
+
+<div class="font-mono text-xs font-bold text-black bg-white border border-black inline-block px-2 text-center mx-auto relative z-20">[B] PERCEIVED / 被感知</div>
+
+<div class="art-block p-6 border-b-8 border-b-black">
+
+<div class="font-bold text-lg mb-1">PRE-NARRATIVE AFFECT</div>
+
+<div class="font-serif-sc font-bold text-xl mb-4">原始情绪</div>
+
+<div class="space-y-2 font-mono text-sm text-gray-800">
+
+<p>• Felt tension / 被感知的张力</p>
+
+<p>• Tight/Loose/Pressure / 紧/松/压</p>
+
+<div class="bg-black text-white p-2 mt-4 text-xs">
+
+No object / No meaning / No self<br>
+
+无对象 / 无意义 / 无“我”
+
+</div>
+
+</div>
+
+<div class="mt-4 text-center text-xs font-bold border-t-2 border-black pt-2">
+
+(Raw felt state / 体验本身)
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+  
+
+<!-- REGULATION CHECK (Recalibrated Lines) -->
+
+<div class="w-full max-w-lg mx-auto relative mb-16 z-20">
+
+<div class="arrow-box mx-auto w-max mb-4">REGULATION CHECK (调节判断) ▼</div>
+
+<div class="flex gap-4 relative z-20">
+
+<!-- Success -->
+
+<div class="flex-1 bg-gray-100 p-4 border border-gray-300 text-xs text-gray-500 z-20">
+
+<div class="font-bold mb-2">[B1] SUCCEEDS</div>
+
+<div>Rest / Resolved</div>
+
+<div>(End of loop)</div>
+
+</div>
+
+<!-- Fail -->
+
+<div class="flex-1 art-block-inverse p-4 text-xs z-20">
+
+<div class="font-bold mb-2 text-white border-b border-white pb-1">[B2] FAILS (失败)</div>
+
+<div class="mb-2">Persistent imbalance</div>
+
+<div class="font-mono">→ COGNITIVE SURPLUS</div>
+
+</div>
+
+</div>
+
+  
+
+<!-- Connector lines from Fail to Center (Recalibrated) -->
+
+<!-- Line moving down from Fail box -->
+
+<div class="absolute right-[25%] -bottom-8 w-[2px] h-8 bg-black z-0"></div>
+
+<!-- Horizontal line moving to center -->
+
+<div class="absolute right-[25%] -bottom-8 w-[25%] h-[2px] bg-black z-0"></div>
+
+<!-- Center line connecting to next section is handled by main axis-line -->
+
+</div>
+
+  
+
+<!-- LAYER MARKER 03 -->
+
+<div class="absolute left-0 top-[1350px] hidden md:block z-0">
+
+<span class="bg-black text-white font-mono text-xs px-2 py-1">LAYER 03 : COGNITION</span>
+
+</div>
+
+  
+
+<!-- 3. COGNITIVE SURPLUS & REFLEXIVITY -->
+
+<div class="art-block w-full max-w-2xl p-8 mb-6 text-center">
+
+<div class="inline-block border-2 border-black px-3 py-1 font-mono text-xs font-bold mb-4">COGNITIVE SURPLUS (认知冗余)</div>
+
+<h3 class="text-3xl font-bold mb-2">REFLEXIVITY</h3>
+
+<h3 class="text-2xl font-serif-sc font-bold mb-6">自反性</h3>
+
+<div class="bg-gray-100 border-l-4 border-black p-4 text-left font-serif-sc text-lg italic">
+
+“Now” ≠ “Could / Should”<br>
+
+<span class="text-base not-italic font-bold">“现在” ≠ “可以 / 应当”</span>
+
+</div>
+
+<p class="font-mono text-xs mt-4 text-gray-500">System can represent itself / 系统可将自身状态作为对象</p>
+
+</div>
+
+  
+
+<div class="arrow-box mb-6">▼</div>
+
+  
+
+<!-- POTENTIAL GRADIENT -->
+
+<div class="art-block w-full max-w-3xl p-8 mb-6">
+
+<div class="flex flex-col md:flex-row gap-8">
+
+<div class="flex-1 text-right border-r-2 border-black pr-8 flex flex-col justify-center">
+
+<h2 class="text-4xl font-black leading-none">PG</h2>
+
+<div class="text-sm font-bold mt-1">POTENTIAL GRADIENT</div>
+
+<div class="font-serif-sc font-bold text-lg">位势差</div>
+
+</div>
+
+<div class="flex-[2] flex flex-col justify-center">
+
+<p class="font-bold text-lg leading-tight mb-2">Structural asymmetry between current and evaluated states</p>
+
+<p class="font-serif-sc text-gray-600">当前状态 vs 被评估状态的结构差</p>
+
+<div class="flex gap-2 mt-4 text-xs font-mono">
+
+<span class="bg-gray-200 px-2 py-1">Not Emotion</span>
+
+<span class="bg-gray-200 px-2 py-1">Not Narrative</span>
+
+<span class="bg-gray-200 px-2 py-1">Pre-linguistic</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+  
+
+<!-- AXIS SPACE (Fixed Z-Index for SPG line issue) -->
+
+<div class="w-full max-w-3xl grid grid-cols-3 gap-0 mb-6 border-2 border-black relative z-10 bg-white">
+
+<div class="p-4 text-center border-r-2 border-black bg-white relative z-10">
+
+<div class="font-black text-2xl">EPG</div>
+
+<div class="text-xs font-mono mt-1">Evaluative</div>
+
+<div class="text-xs text-gray-500">Better Self</div>
+
+</div>
+
+<!-- SPG: Center column. Has z-10 and bg-white to hide axis line -->
+
+<div class="p-4 text-center border-r-2 border-black bg-white relative z-10">
+
+<div class="font-black text-2xl">SPG</div>
+
+<div class="text-xs font-mono mt-1">Social</div>
+
+<div class="text-xs text-gray-500">Position</div>
+
+</div>
+
+<div class="p-4 text-center bg-white relative z-10">
+
+<div class="font-black text-2xl">TPG</div>
+
+<div class="text-xs font-mono mt-1">Temporal</div>
+
+<div class="text-xs text-gray-500">Future</div>
+
+</div>
+
+</div>
+
+  
+
+<div class="arrow-box mb-6">▼</div>
+
+  
+
+<!-- BOTTLENECK -->
+
+<div class="w-full max-w-md bg-black text-white p-6 text-center border-2 border-black mb-12 shadow-[8px_8px_0px_#ccc] relative z-10">
+
+<div class="font-mono text-xs text-gray-400 mb-2">/// BOTTLENECK ///</div>
+
+<div class="font-bold text-lg mb-1">STRUCTURAL PROCESSING BOTTLENECK</div>
+
+<div class="font-serif-sc font-bold">结构性处理瓶颈</div>
+
+<p class="text-xs text-gray-400 mt-3 font-mono">Human cognition cannot resolve multi-dimensional gradients in parallel</p>
+
+</div>
+
+  
+
+<!-- LAYER MARKER 04 -->
+
+<div class="absolute left-0 top-[2250px] hidden md:block z-0">
+
+<span class="bg-black text-white font-mono text-xs px-2 py-1">LAYER 04 : INTERFACE</span>
+
+</div>
+
+  
+
+<!-- 4. NARRATIVITY INTERFACE -->
+
+<div class="art-block w-full max-w-2xl p-0 mb-4 overflow-hidden relative z-10">
+
+<div class="bg-gray-100 p-4 border-b-2 border-black text-center">
+
+<h3 class="font-bold text-xl">NARRATIVITY INTERFACE</h3>
+
+<h3 class="font-serif-sc font-bold">叙事性接口（压缩开始）</h3>
+
+</div>
+
+<div class="p-8 bg-white">
+
+<ul class="space-y-4 font-mono text-sm">
+
+<li class="flex items-center">
+
+<span class="bg-black text-white w-6 h-6 flex items-center justify-center mr-4 text-xs font-bold">1</span>
+
+<div>
+
+<span class="font-bold">Perspective Binding</span>
+
+<span class="text-gray-500 ml-2">视角绑定</span>
+
+</div>
+
+</li>
+
+<li class="flex items-center">
+
+<span class="bg-black text-white w-6 h-6 flex items-center justify-center mr-4 text-xs font-bold">2</span>
+
+<div>
+
+<span class="font-bold">Axis Selection</span>
+
+<span class="text-gray-500 ml-2">主轴选择</span>
+
+</div>
+
+</li>
+
+<li class="flex items-center">
+
+<span class="bg-black text-white w-6 h-6 flex items-center justify-center mr-4 text-xs font-bold">3</span>
+
+<div>
+
+<span class="font-bold">Causal Simplification</span>
+
+<span class="text-gray-500 ml-2">因果简化</span>
+
+</div>
+
+</li>
+
+<li class="flex items-center">
+
+<span class="bg-black text-white w-6 h-6 flex items-center justify-center mr-4 text-xs font-bold">4</span>
+
+<div>
+
+<span class="font-bold">Temporal Linearization</span>
+
+<span class="text-gray-500 ml-2">时间线性化</span>
+
+</div>
+
+</li>
+
+</ul>
+
+</div>
+
+<!-- EMERGENCE POINT -->
+
+<div class="bg-black text-white p-8 text-center border-t-2 border-black relative overflow-hidden">
+
+<!-- Diagonal stripes decoration -->
+
+<div class="absolute top-0 left-0 w-full h-full opacity-10" style="background: repeating-linear-gradient(45deg, #fff, #fff 1px, transparent 1px, transparent 10px);"></div>
+
+<div class="relative z-10">
+
+<div class="text-xs font-mono mb-2">▶ EMERGENCE POINT</div>
+
+<h2 class="text-5xl font-black tracking-tighter mb-2">EMOTION</h2>
+
+<h2 class="text-2xl font-serif-sc font-bold mb-4">情绪在此生成</h2>
+
+<div class="inline-block border border-white px-4 py-2 text-sm font-serif-sc italic">
+
+"Affect becomes owned, named, and reasoned"
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+  
+
+<!-- Re-establish Axis Line visibility below the block -->
+
+<div class="axis-line h-16 relative bg-black z-0"></div>
+
+  
+
+<!-- 5. OUTPUT -->
+
+<div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 relative z-10">
+
+<!-- Intent & Language -->
+
+<div class="art-block p-6">
+
+<div class="border-b-2 border-black pb-2 mb-4 font-bold text-lg">OUTPUT GENERATION</div>
+
+<div class="mb-6">
+
+<div class="font-bold text-sm">INTENT FORMATION</div>
+
+<div class="font-serif-sc text-gray-600">意图生成</div>
+
+<div class="mt-1 font-mono text-xs bg-gray-100 p-2 border border-gray-300">
+
+“I want / I should / I must”
+
+</div>
+
+</div>
+
+<div>
+
+<div class="font-bold text-sm">SYMBOLIC EXTERNALIZATION</div>
+
+<div class="font-serif-sc text-gray-600">符号外显</div>
+
+<div class="text-xs text-gray-500 mt-1">Replicable narrative compression</div>
+
+</div>
+
+</div>
+
+  
+
+<!-- Alignment Test -->
+
+<div class="art-block p-6 bg-gray-50">
+
+<div class="border-b-2 border-black pb-2 mb-4 font-bold text-lg">ALIGNMENT TEST</div>
+
+<div class="space-y-4">
+
+<div class="flex justify-between items-center bg-white p-3 border border-black">
+
+<span class="font-mono text-xs">MATCH</span>
+
+<div class="text-right">
+
+<div class="font-bold">CIVILIZATION</div>
+
+<div class="text-xs font-serif-sc">文明</div>
+
+</div>
+
+</div>
+
+<div class="flex justify-between items-center bg-black text-white p-3 border border-black">
+
+<span class="font-mono text-xs">MISMATCH</span>
+
+<div class="text-right">
+
+<div class="font-bold">ANXIETY</div>
+
+<div class="text-xs font-serif-sc">焦虑 (PG Exposed)</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+  
+
+</div>
+
+  
+
+<!-- FOOTER / AXIOMS -->
+
+<footer class="w-full max-w-5xl border-t-4 border-black pt-12 mt-12 relative z-10">
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+
+<div class="p-4 border-l-2 border-black">
+
+<h5 class="font-mono text-xs font-bold mb-2">AXIOM I</h5>
+
+<p class="font-serif-sc font-bold text-lg mb-1">情绪是计算结果</p>
+
+<p class="text-sm text-gray-600 font-serif italic">Emotion is not raw input, but a computed output.</p>
+
+</div>
+
+<div class="p-4 border-l-2 border-black">
+
+<h5 class="font-mono text-xs font-bold mb-2">AXIOM II</h5>
+
+<p class="font-serif-sc font-bold text-lg mb-1">焦虑即裸露</p>
+
+<p class="text-sm text-gray-600 font-serif italic">Anxiety is the exposure of raw structural contradictions.</p>
+
+</div>
+
+<div class="p-4 border-l-2 border-black">
+
+<h5 class="font-mono text-xs font-bold mb-2">AXIOM III</h5>
+
+<p class="font-serif-sc font-bold text-lg mb-1">沟通即对齐</p>
+
+<p class="text-sm text-gray-600 font-serif italic">Communication aligns compression algorithms.</p>
+
+</div>
+
+</div>
+
+<div class="w-full text-center mt-24">
+
+<div class="inline-block bg-black text-white px-4 py-2 font-mono text-xs font-bold tracking-[0.2em] uppercase">
+
+2026 · Leilei
+
+</div>
+
+</div>
+
+</footer>
+
+  
+
+</div>
+
+  
+
+<!-- Download Button -->
+
+<button id="downloadBtn" class="fixed bottom-8 right-8 bg-black hover:bg-gray-800 text-white p-4 shadow-[4px_4px_0px_#888] flex items-center gap-3 transition-all duration-300 z-50 group border-2 border-white">
+
+<span class="text-xl">📷</span>
+
+<span class="max-w-0 group-hover:max-w-xs transition-all duration-500 whitespace-nowrap overflow-hidden text-xs font-mono tracking-widest font-bold">SAVE ARTIFACT</span>
+
+<div id="loadingSpinner" class="spinner hidden"></div>
+
+</button>
+
+  
+
+<script>
+
+document.getElementById('downloadBtn').addEventListener('click', function() {
+
+const btn = this;
+
+const spinner = document.getElementById('loadingSpinner');
+
+const icon = btn.querySelector('span:first-child');
+
+btn.classList.add('pointer-events-none', 'opacity-80');
+
+icon.style.display = 'none';
+
+spinner.style.display = 'block';
+
+  
+
+const elementToCapture = document.getElementById("export-container");
+
+  
+
+setTimeout(() => {
+
+html2canvas(elementToCapture, {
+
+backgroundColor: '#ffffff',
+
+scale: 2,
+
+useCORS: true,
+
+logging: false
+
+}).then(canvas => {
+
+const link = document.createElement('a');
+
+link.download = 'Narrative_Civilization_Art_Style.png';
+
+link.href = canvas.toDataURL('image/png');
+
+link.click();
+
+btn.classList.remove('pointer-events-none', 'opacity-80');
+
+icon.style.display = 'inline';
+
+spinner.style.display = 'none';
+
+}).catch(err => {
+
+console.error(err);
+
+alert('Capture failed. Please try again.');
+
+btn.classList.remove('pointer-events-none', 'opacity-80');
+
+icon.style.display = 'inline';
+
+spinner.style.display = 'none';
+
+});
+
+}, 100);
+
+});
+
+</script>
+
+</body>
+
+</html>
